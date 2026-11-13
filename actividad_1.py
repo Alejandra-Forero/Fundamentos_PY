@@ -3,7 +3,7 @@
 nombre="Alejandra"
 apellido="Forero"
 ficha=3233140
-programa="Analisis y desarrollo de sistemas de informacion"
+programa="Analisis y desarrollo de software"
 edad=19
 promedio=4
 activo=True
@@ -18,3 +18,5 @@ print("Pertenece al programa:", programa, type(programa))
 print("Su edad es:", edad, type(edad))
 print("Con promedio:", promedio, type(promedio))
 print("Su estado es activo:", activo, type(activo))
+
+print(f"Hola, su nombre es  {nombre} {apellido} pertenece al programa  {programa}, con ficha {ficha}, tiene {edad} años, un  promedio de {promedio}  y su estado activo es: {activo}")
