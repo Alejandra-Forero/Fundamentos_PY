@@ -16,7 +16,7 @@ if peso <= 0 or altura <= 0:
     print("Error: el peso y la altura deben ser valores positivos.")
 else:
     imc = peso / (altura ** 2)
-    print(f"Tu IMC es: {imc}")
+    print(f"Tu IMC es: {round(imc,2)}")
 
     if imc >= 30:
         print("Usted es obeso")

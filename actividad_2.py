@@ -13,6 +13,11 @@ promedio=(suma/3)
 
 print(f"la suma de sus nota es {suma} y su promedio es igual {round(promedio,3)}")
 
+if promedio >=3.0:
+    print("haz aprobado")
+else :
+    print ("usted no aprobó estudia mas")
+
 
 #3. Calcula cuántos puntos le faltan al estudiante para alcanzar la nota máxima (5.0) usando operadores aritméticos.
 
