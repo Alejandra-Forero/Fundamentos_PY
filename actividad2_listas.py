@@ -21,7 +21,7 @@ print(f" las temperaturas de la segunda semana corresponden a: {temperaturas[7:1
 print(f" las temperaturas de los dias pares corresponden a: {temperaturas[0::2]}") #imprime los dias pares
 
 promedio_1 = round(sum(temperaturas[0:7]) / 7,2)#promedio semana 1
-promedio_2 = sum((temperaturas[7:14]) / 7,2 )#promedio semana 1
+promedio_2 = round(sum(temperaturas[7:14]) / 7,2 )#promedio semana 1
 print(promedio_1)  
 print(promedio_2)
 
