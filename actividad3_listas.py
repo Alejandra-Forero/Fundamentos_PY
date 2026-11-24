@@ -13,56 +13,29 @@ Track 1", "Bonus Track 2"].
 el string 'Bonus Track 1'?"""
 
 
+# 1. Lista inicial
 canciones = [
-    "Monaco",
-    "Punto_40",
-    "Tu_con_el",
-    "Loco_paranoico",
-    "Bokete"
+    "Mi Gente", "Safaera", "Ginza", "Dákiti",  "Ay Vamos"         
 ]
+print(f"La lista inicial contiene las canciones: {canciones}")
 
-print("=== Lista de reproducción inicial ===")
-print(canciones)
-print()
+# 2. Agregar canciones
+canciones.append("Me Porto Bonito")
+canciones.insert(1, "Qué Pretendes")
+canciones.extend(["Bonus Track 1", "Bonus Track 2"])
 
-canciones.append("EEO")
-print(f"se agrega una nueva cancion al final {canciones}")
-print()
+print(f"se agregan 3 canciones:  {canciones}")
 
-canciones.insert(0, "Ninio")
-print(f"se agrega una cancion en la posicion 0 {canciones}")
-print()
+# 3. Eliminar canciones con remove y pop
+canciones.remove("Ginza")
+eliminada = canciones.pop()
+print(f"Lista tras eliminar 2 canciones: {canciones}")
 
-canciones_extras = ["cybertruck", "120"]
-canciones.extend(canciones_extras)
-print(f"se agrega canciones de otra lista {canciones}")
-print()
-
-canciones.remove("Monaco")
-print(f"elimina una cancion de la lista {canciones}")
-print()
-
-
-cancion_eliminada = canciones.pop()
-print(canciones)
-print("Canción eliminada con pop():", cancion_eliminada)
-print()
-
+# 4. Ordenar alfabéticamente
 canciones.sort()
-print(f"ordena alfabeticamente {canciones}")
-print()
+print(f"Lista ordenada: {canciones}")
 
-
-# 5. Responder las preguntas usando métodos
-print("=== Respuestas a las preguntas ===")
-
-# ¿Cuántas canciones tiene la playlist?
+# 5. Preguntas
 print("¿Cuántas canciones tiene la playlist?", len(canciones))
-
-# ¿En qué posición está la primera canción que agregaste?
-print("¿En qué posición está la primera canción que agregaste ('EEO')?", canciones.index("EEO"))
-
-# ¿Cuántas veces aparece 'cybertruck'?
-print("¿Cuántas veces aparece 'cybertruck'?", canciones.count("cybertruck"))
-
-print(canciones)
+print("Posición de la primera cancion que agregaste:",canciones.index("Me Porto Bonito"))
+print("Veces que aparece 'Bonus Track 1':", canciones.count("Bonus Track 1"))

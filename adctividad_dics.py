@@ -1,97 +1,101 @@
-# Actividad: Sistema de Registro de Aprendices
+#1. Crea actividad2_diccionarios.py. Construye un diccionario grupo donde cada clave sea el número de ficha (int) y el valor sea otro diccionario con los campos: nombre, edad, notas (lista de 4 floats) y ciudad. Registra al menos 4 aprendices.
+#2. Escribe una formula calcular_promedio que reciba la lista de notas y retorne el promedio. Úsala al mostrar el reporte.
+#3. Usando .items() y un ciclo for, imprime un reporte con: ficha, nombre, edad, promedio de notas y estado (APROBADO/REPROBADO según si el promedio >= 3.0).
+#4. Agrega un nuevo aprendiz al diccionario después de crearlo, usando una nueva clave de ficha. Luego actualiza la ciudad de uno de los aprendices existentes con dicc[ficha]['ciudad'] = 'Nueva Ciudad'.
+#5. Bonus: Usa sorted() con key= para imprimir la lista de aprendices ordenada de mayor a menor promedio.
 
-# 1. Diccionario 'grupo' con al menos 4 aprendices
-# Clave = número de ficha (int)
-# Valor = diccionario con: nombre, edad, notas (lista de 4 floats), ciudad
+
+# SISTEMA DE REGISTRO DE APRENDICES ----------------------------
+
+# 1. CREAR DICCIONARIO CON 4 APRENDICES
 
 grupo = {
-    101: {
-        "nombre": "Ana Torres",
-        "edad": 19,
-        "notas": [4.5, 3.8, 4.2, 4.0],
-        "ciudad": "Bogotá"
-    },
-    102: {
-        "nombre": "Carlos Méndez",
-        "edad": 21,
-        "notas": [2.5, 3.0, 2.8, 3.2],
-        "ciudad": "Medellín"
-    },
-    103: {
-        "nombre": "Laura Gómez",
+    3233140: {
+        "nombre": "Alejandra",
         "edad": 18,
-        "notas": [4.8, 4.5, 4.9, 4.7],
-        "ciudad": "Cali"
+        "notas": [4.0, 3.5, 4.2, 4.5],
+        "ciudad": "Duitama"
     },
-    104: {
-        "nombre": "Andrés Ruiz",
+    3233141: {
+        "nombre": "Sara",
+        "edad": 19,
+        "notas": [3.0, 3.5, 4.0, 3.8],
+        "ciudad": "Tunja"
+    },
+    3233142: {
+        "nombre": "Santiago",
         "edad": 20,
-        "notas": [3.2, 2.9, 3.5, 3.0],
-        "ciudad": "Barranquilla"
+        "notas": [2.5, 3.0, 2.8, 3.2],
+        "ciudad": "Paipa"
+    },
+    3233143: {
+        "nombre": "Camila",
+        "edad": 18,
+        "notas": [4.5, 4.8, 4.2, 5.0],
+        "ciudad": "Sogamoso"
     }
 }
 
-# 2. Función que recibe la lista de notas y retorna el promedio
-def calcular_promedio(notas):
-    return sum(notas) / len(notas)
 
-# 3. Reporte usando .items() y un ciclo
-print("=== REPORTE DE APRENDICES ===")
-print()
+# 2 y 3. MOSTRAR REPORTE Y CALCULAR PROMEDIO
 
 for ficha, datos in grupo.items():
-    promedio = calcular_promedio(datos["notas"])
-    estado = "APROBADO" if promedio >= 3.0 else "REPROBADO"
-    
+
+    promedio = sum(datos["notas"]) / 4
+
+    if promedio >= 3.0:
+        estado = "APROBADO"
+    else:
+        estado = "REPROBADO"
+
     print(f"Ficha: {ficha}")
     print(f"Nombre: {datos['nombre']}")
     print(f"Edad: {datos['edad']}")
-    print(f"Promedio de notas: {promedio:.2f}")
+    print(f"Promedio: {promedio:.2f}")
     print(f"Estado: {estado}")
-    print("-" * 30)
 
-# 4. Agregar un nuevo aprendiz y actualizar la ciudad de uno existente
-print()
-print("=== AGREGANDO NUEVO APRENDIZ Y ACTUALIZANDO CIUDAD ===")
 
-# Agregar nuevo aprendiz con una nueva clave de ficha
-grupo[105] = {
-    "nombre": "Sofía Ramírez",
-    "edad": 22,
-    "notas": [3.8, 4.1, 3.5, 4.0],
-    "ciudad": "Pereira"
+# 4. AGREGAR UN NUEVO APRENDIZ
+
+grupo[3233144] = {
+    "nombre": "Valentina",
+    "edad": 19,
+    "notas": [4.0, 4.2, 3.8, 4.5],
+    "ciudad": "Bogota"
 }
 
-# Actualizar la ciudad de un aprendiz existente
-grupo[102]["ciudad"] = "Cartagena"
+# ACTUALIZAR LA CIUDAD DE UN APRENDIZ
 
-print("Nuevo aprendiz agregado (ficha 105):", grupo[105]["nombre"])
-print("Ciudad actualizada de Carlos Méndez:", grupo[102]["ciudad"])
-print()
+grupo[3233141]["ciudad"] = "Nueva Ciudad"
 
-# Mostrar de nuevo el reporte incluyendo al nuevo aprendiz
-print("=== REPORTE ACTUALIZADO ===")
-print()
+
+print("Aprendiz agregado y ciudad actualizada")
+
+
+# 5. BONUS: ORDENAR DE MAYOR A MENOR PROMEDIO
+
+promedios = []
 
 for ficha, datos in grupo.items():
-    promedio = calcular_promedio(datos["notas"])
-    estado = "APROBADO" if promedio >= 3.0 else "REPROBADO"
-    
-    print(f"Ficha: {ficha} | Nombre: {datos['nombre']} | Edad: {datos['edad']} | "
-          f"Promedio: {promedio:.2f} | Estado: {estado} | Ciudad: {datos['ciudad']}")
+    promedio = sum(datos["notas"]) / 4
+    promedios.append((promedio, ficha))
 
-# 5. Bonus: Imprimir la lista de aprendices ordenada de mayor a menor promedio
-print()
-print("=== APRENDICES ORDENADOS POR PROMEDIO (MAYOR A MENOR) ===")
-print()
+promedios.sort(reverse=True)
 
-# sorted() con key= para ordenar por promedio (de mayor a menor)
-aprendices_ordenados = sorted(
-    grupo.items(),
-    key=lambda item: calcular_promedio(item[1]["notas"]),
-    reverse=True
-)
+print("\n--- APRENDICES ORDENADOS POR PROMEDIO ---")
 
-for ficha, datos in aprendices_ordenados:
-    promedio = calcular_promedio(datos["notas"])
-    print(f"Ficha: {ficha} | {datos['nombre']} | Promedio: {promedio:.2f}")
+for promedio, ficha in promedios:
+
+    datos = grupo[ficha]
+
+    if promedio >= 3.0:
+        estado = "APROBADO"
+    else:
+        estado = "REPROBADO"
+
+
+    print(f"Ficha: {ficha}")
+    print(f"Nombre: {datos['nombre']}")
+    print(f"Edad: {datos['edad']}")
+    print(f"Promedio: round({promedio:.2})")
+    print(f"Estado: {estado}")
